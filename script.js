@@ -1,100 +1,124 @@
-// FIRST JS PROJECT by Karl D Reta of the Odin Project
+// Grab the necessary elements
 
-// Declare constant variables
-// choices is the array of options for the computer
-// x and y will be used later to give a number value to for the result of each round
+const gameTitle = document.querySelector('#gameTitle');
+const playerText = document.querySelector('#playerText');
+const computerText = document.querySelector('#computerText');
+const resultText = document.querySelector('#resultText');
+const playerScore = document.querySelector('#playerScore');
+const computerScore = document.querySelector('#computerScore');
+const choiceBtns = document.querySelectorAll('.choiceButton');
+choiceBtns.forEach(button => button.addEventListener('click', getPlayerChoice));
 
-const choices = ["Rock", "Paper", "Scissors"];
-const x = "YOU WIN, ";
-const y = "YOU LOSE, ";
+let playerRunningScore = 0;
+let computerRunningScore= 0;
+let roundsPlayed = 0;
 
-function getComputerChoice () {
-    // creates a variable randomIndex equalizes it to a random decimal value (0 - 1), 
-    // multiplies it to the length (0-2 in this case) of the choices array
-    // and "floors it down" to the nearest whole number.
-    // then, returns choices array with the randomly chosen number, that number is the index position of any string in the array.
-    let randomIndex = Math.floor(Math.random() * choices.length);
-    return choices[randomIndex];
+
+// Get Player Choice and pass it as an argument for playRound()
+
+function getPlayerChoice(e) {
+    playerChoice = e.target.textContent.toLowerCase();
+    playRound(playerChoice);
+    startGame();
 }
 
 
-function playRound() {
-    // The first three lines should be nested inside of the function (never outside), for the prompt to called multiple times.
-    // variable computerSelection takes the value from the global getComputerChoice function.
-    // anyCase asks for prompt and converts it to lowercase.
-    // playerSelection now holds the value of anyCase.
-    // The conditions strictly uses lowercase for playerSelection, since playerSelection is in lowerCase after all.
+// Get Computer Choice
+function getComputerChoice() {
+    let randomNumber = Math.floor(Math.random() * 3 + 1);
+    let computer;
 
-    let computerSelection = getComputerChoice();
-    let anyCase = prompt("Choose: Rock, Paper or Scissors.").toLowerCase();
-    let playerSelection = anyCase;
-
-    if (playerSelection === "rock" && computerSelection === "Paper") {
-        return y + "paper covers rock.";
-    } else if (playerSelection === "rock" && computerSelection === "Scissors") {
-        return x + "rock beats scissors.";
-    } else if (playerSelection === "paper" && computerSelection === "Rock"){
-        return x + "paper covers rock.";
-    } else if (playerSelection === "paper" && computerSelection === "Scissors") {
-        return y + "scissors cuts paper.";
-    }else if (playerSelection === "scissors" && computerSelection === "Rock") {
-        return y + "rock crushes scissors."; 
-    } else if (playerSelection === "scissors" && computerSelection === "Paper") {
-        return x + "scissors cuts paper.";
-    } else {
-        return "A stalemate."; 
+    switch (randomNumber) {
+        case 1:
+            computer = "rock";
+        break;
+        case 2:
+            computer = "paper";
+        break;
+        case 3:
+            computer = "scissors";
+        break;
     }
+
+    return computer;
 }
+
+// // Get Player Choice
+
+// let playerChoice = event.target.textContent.toLowerCase(); // Take the click text content from the bestOfFive function and hoist it.
+
+function playRound(player) {
+    let computer = getComputerChoice();
+    let result;  
+
+
+    if ((player === "rock" && computer === "scissors") ||
+        (player === "paper" && computer === "rock") ||
+        (player === "scissors" && computer === "paper")) {
+        result = "Player wins";
+       } else if (player === computer) {
+        result = "Tie.";
+       } else {
+        result = "Computer wins";
+       }
+
+       playerText.textContent = `Player picked: ${player.charAt(0).toUpperCase() + player.slice(1)}`;
+       computerText.textContent = `Computer choose: ${computer.charAt(0).toUpperCase() + computer.slice(1)}`;
+       resultText.textContent = `Round ${roundsPlayed + 1} result: ${result}`;
+
+       return result;
+}
+
 
 function roundResult() {
-    // This function should return a value for each round
-    // Creates a local variable "result", takes the value from playRound function.
-    // if the return value of the result variable has either the x or y variable (declared globally), returns 1 and 0 respectively.
-    // Otherwise, returns null.
+    let result = playRound(playerChoice); 
 
-    let result = playRound();
-    console.log(result);
-    if (!(result.includes(x) || result.includes(y))) {
+    if (!(result.includes("Player") || result.includes("Computer"))) {
         return null
-    } else if (result.includes(x)) {
+    } else if (result.includes("Player")) {
         return 1;
     } else {
-        return 0
+        return 0;
     } 
+
 }
 
-// Begin best of five Game
+function startGame () {
 
-function game() {
-    // Initialize the scores, "The Score Board"
-    let playerScore = 0;
-    let computerScore = 0;
-
-    // Used a for loop here, 
-    // Created variable "round", initialized it to 1.
-    // As long as round <= 5; round gets incremented.
-    // Created another local variable "result", takes the value from the roundResult function.
-    // if-else used to get the result of each round and add it to the "Score Board."
-    // Another if-else outside of the for loop, which takes the values from "The Score Board", and compares to display a sixth and last log.
-    for (let round = 1; round <= 5; round++) {
+    function oneRound() {
         let result = roundResult();
 
-        if (result === 1) {
-            playerScore++;
+        if(result === 1) {
+            playerRunningScore++;
         } else if (result === 0) {
-            computerScore++;
-        }
+            computerRunningScore++;
+        } 
+
+        playerScore.textContent = `Player score: ${playerRunningScore}`;
+        computerScore.textContent = `Computer score: ${computerRunningScore}`;
     }
 
-        if (playerScore > computerScore) {
-            console.log("Congratulations, you beat the computer!");
-        }else if (playerScore < computerScore) {
-            console.log("Sorry, better luck next time.");
-        } else {
-            console.log("An impasse.");
-        }
+    oneRound();
+    roundsPlayed++;
+
+    if (roundsPlayed === 5) {
+        declareWinner()
+    }
 }
 
-// Finally call the Function
+function declareWinner () {
 
-game();
+    if (playerRunningScore > computerRunningScore) {
+        resultText.textContent = `Game Result: Player has slain the Computer.`;
+    } else if (playerRunningScore < computerRunningScore) {
+        resultText.textContent = `Game Result: Player was out of luck.`
+    } else {
+        resultText.textContent = `Game Result: This battle continues.`
+    }
+
+    // Restarts the game
+
+    playerRunningScore = 0;
+    computerRunningScore= 0;
+    roundsPlayed = 0;
+}
