@@ -9,6 +9,8 @@ const computerScore = document.querySelector('#computerScore');
 const choiceBtns = document.querySelectorAll('.choiceButton');
 choiceBtns.forEach(button => button.addEventListener('click', getPlayerChoice));
 
+
+// Initialize the game scores
 let playerRunningScore = 0;
 let computerRunningScore= 0;
 let roundsPlayed = 0;
@@ -18,8 +20,8 @@ let roundsPlayed = 0;
 
 function getPlayerChoice(e) {
     playerChoice = e.target.textContent.toLowerCase();
-    playRound(playerChoice);
-    startGame();
+    playRound(playerChoice); // All succeeding function calls of playRound() will have playerChoice as an argument.
+    startGame(); // Events can handle multiple Event Listeners.
 }
 
 
