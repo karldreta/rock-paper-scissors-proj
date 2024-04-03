@@ -22,6 +22,7 @@ body {
     font-size: 2.8rem;
     border: 1px solid blue;
     margin: 10px;
+    text-align: center;
 }
 
 #scoreBoard {
@@ -39,6 +40,7 @@ body {
     margin: 0;
     padding: 10px;
     text-align: center;
+    align-items: center;
 }
 
 .scoreText div {
@@ -47,5 +49,27 @@ body {
     font-size: 5rem;
     text-align: center;
     margin-top: 10px;
-    padding: ;
+    padding-top: 5px;
 }
+#outputs {
+    border: 1px solid blue;
+    font-size: 2.3rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px;
+    padding-right: 4.5px;
+}
+
+#outputs > h3 {
+    border: 1px solid red;
+    min-width: 90px;
+    min-width: 90px;
+    padding: 0;
+    text-align: center;
+    margin: 0; 
+}
+
+
+/* Begin Buttons */
+

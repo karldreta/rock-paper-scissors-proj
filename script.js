@@ -17,12 +17,11 @@ let computerRunningScore= 0;
 let roundsPlayed = 0;
 
 
-// Get Player Choice and pass it as an argument for playRound()
+// Get Player Choice and pass it as an argument for startGame()
 
 function getPlayerChoice(e) {
     playerChoice = e.target.textContent.toLowerCase();
-    playRound(playerChoice); // All succeeding function calls of playRound() will have playerChoice as an argument.
-    startGame(); // Events can handle multiple Event Listeners.
+    startGame(playerChoice); // startGame now carries the playerChoice value with it, which can then be passed down from it.
 }
 
 
@@ -46,10 +45,6 @@ function getComputerChoice() {
     return computer;
 }
 
-// // Get Player Choice
-
-// let playerChoice = event.target.textContent.toLowerCase(); // Take the click text content from the bestOfFive function and hoist it.
-
 function playRound(player) {
     let computer = getComputerChoice();
     let result;  
@@ -58,16 +53,16 @@ function playRound(player) {
     if ((player === "rock" && computer === "scissors") ||
         (player === "paper" && computer === "rock") ||
         (player === "scissors" && computer === "paper")) {
-        result = "Player wins";
+        result = "Player";
        } else if (player === computer) {
-        result = "Tie.";
+        result = "Draw";
        } else {
-        result = "Computer wins";
+        result = "Computer";
        }
 
-       playerText.textContent = `Player picked: ${player.charAt(0).toUpperCase() + player.slice(1)}`;
-       computerText.textContent = `Computer choose: ${computer.charAt(0).toUpperCase() + computer.slice(1)}`;
-       resultText.textContent = `Round result: ${result}`;
+       playerText.textContent = `${player.toUpperCase()}`;
+       computerText.textContent = `${computer.toUpperCase()}`;
+       resultText.textContent = `${result.toUpperCase()}`;
 
        return result;
 }
@@ -110,19 +105,18 @@ function startGame () {
     }
 }
 
-function declareWinner () {
 
+function declareWinner() {
     if (playerRunningScore > computerRunningScore) {
-        resultText.textContent = `Game Result: Player has slain the Computer.`;
+        gameTitle.textContent = `Winner: Player`;
     } else if (playerRunningScore < computerRunningScore) {
-        resultText.textContent = `Game Result: Player was out of luck.`
+        gameTitle.textContent = `Winner: Computer`;
     } else {
-        resultText.textContent = `Game Result: This battle continues.`
+        gameTitle.textContent = `Play Tie Breaker`;
     }
 
     // Restarts the game
-
     playerRunningScore = 0;
-    computerRunningScore= 0;
-    roundsPlayed = 0;
+    computerRunningScore = 0;
+    roundsPlayed = 0; 
 }
