@@ -5,6 +5,7 @@ const playerText = document.querySelector('#playerText');
 const computerText = document.querySelector('#computerText');
 const resultText = document.querySelector('#resultText');
 const playerScore = document.querySelector('#playerScore');
+const roundNum = document.querySelector('#roundNum');
 const computerScore = document.querySelector('#computerScore');
 const choiceBtns = document.querySelectorAll('.choiceButton');
 choiceBtns.forEach(button => button.addEventListener('click', getPlayerChoice));
@@ -66,7 +67,7 @@ function playRound(player) {
 
        playerText.textContent = `Player picked: ${player.charAt(0).toUpperCase() + player.slice(1)}`;
        computerText.textContent = `Computer choose: ${computer.charAt(0).toUpperCase() + computer.slice(1)}`;
-       resultText.textContent = `Round ${roundsPlayed + 1} result: ${result}`;
+       resultText.textContent = `Round result: ${result}`;
 
        return result;
 }
@@ -96,8 +97,9 @@ function startGame () {
             computerRunningScore++;
         } 
 
-        playerScore.textContent = `Player score: ${playerRunningScore}`;
-        computerScore.textContent = `Computer score: ${computerRunningScore}`;
+        playerScore.textContent = `0${playerRunningScore}`;
+        computerScore.textContent = `0${computerRunningScore}`;
+        roundNum.textContent = `${roundsPlayed + 1}`;
     }
 
     oneRound();

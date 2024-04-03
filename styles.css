@@ -1,9 +1,51 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
 body {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #gameDiv {
     border: 1px solid red;
     width: 400px;
-    
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+#gameTitle {
+    font-size: 2.8rem;
+    border: 1px solid blue;
+    margin: 10px;
+}
+
+#scoreBoard {
+    border: 1px solid brown;  
+    display: flex;
+    justify-content: space-between;  
+    margin: 10px;
+    font-size: 2.5rem;
+    overflow: hidden;
+
+}
+
+.scoreText {
+    border: 1px solid red;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+.scoreText div {
+    border: 1px solid blue;
+    width: 70px;
+    font-size: 5rem;
+    text-align: center;
+    margin-top: 10px;
+    padding: ;
 }
