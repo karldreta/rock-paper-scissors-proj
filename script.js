@@ -8,7 +8,8 @@ const playerScore = document.querySelector('#playerScore');
 const roundNum = document.querySelector('#roundNum');
 const computerScore = document.querySelector('#computerScore');
 const choiceBtns = document.querySelectorAll('.choiceButton');
-choiceBtns.forEach(button => button.addEventListener('click', getPlayerChoice));
+const icons = document.querySelectorAll('.fa-solid');
+icons.forEach(button => button.addEventListener('click', getPlayerChoice));
 
 
 // Initialize the game scores
@@ -19,10 +20,11 @@ let roundsPlayed = 0;
 
 // Get Player Choice and pass it as an argument for startGame()
 
-function getPlayerChoice(e) {
-    playerChoice = e.target.textContent.toLowerCase();
+function getPlayerChoice(e) {  
+    playerChoice = e.target.nextElementSibling.textContent.toLowerCase();
     startGame(playerChoice); // startGame now carries the playerChoice value with it, which can then be passed down from it.
 }
+
 
 
 // Get Computer Choice

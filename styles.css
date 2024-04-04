@@ -4,10 +4,16 @@
     font-size: 62.5%;
 }
 
+:root {
+    --bg: #222;
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--bg);
+    color: whitesmoke;
 }
 
 #gameDiv {
@@ -55,8 +61,8 @@ body {
     border: 1px solid blue;
     font-size: 2.3rem;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: center;
+    gap: 30px;
     margin: 10px;
     padding-right: 4.5px;
 }
@@ -72,4 +78,100 @@ body {
 
 
 /* Begin Buttons */
+ul {
+    border: 1px solid blue;
+    margin: 10px;
+    padding: 0;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    gap: 50px;
+    list-style-type: none;
+}
+
+ul li {
+    position: relative;
+    text-decoration: none;
+    width: 90px;
+    min-width: 90px;
+    height: 90px;
+    min-height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    margin: 0;
+    padding: 0;
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    inset: 30px;
+    box-shadow: 0 0 0 10px var(--clr),
+    0 0 0 20px var(--bg),
+    0 0 0 22px var(--clr);
+    transition: 0.5s;
+}
+
+ul li:hover::before {
+    inset: 15px;
+}
+
+ul li::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--bg);
+    transform: rotate(45deg);
+    transition: 0.5s;
+}
+
+ul li:hover::after {
+   inset: 0px;
+   transform: rotate(0deg);
+}
+
+ul li a {
+    position: relative;
+    text-decoration: none;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li a i {
+    font-size: 3rem;
+    transition: 0.5s;
+    color: var(--clr);
+    cursor: pointer;
+}
+
+ul li:hover a i {
+    color: var(--clr);
+    transform: translateY(-40%) ;
+}
+
+ul li a span {
+    position: absolute;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--clr);
+    opacity: 0;
+    transition: 0.5s;
+    transform: scale(0) translateY(200%);
+    font-size: 1.5rem;
+}
+
+ul li:hover a span {
+    opacity: 1;
+    transform: scale(1) translateY(100%);
+}
+
+ul li:hover a i,
+ul li:hover a span {
+    filter: drop-shadow(0 0 20px var(--clr))
+            drop-shadow(0 0 40px var(--clr))
+            drop-shadow(0 0 60px var(--clr));
+}
 

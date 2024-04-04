@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
     <script src="script.js" defer></script>
     <title>Rock Paper Scissors Reworked | Odin Project</title>
 </head>
@@ -20,11 +21,26 @@
             <h3 id="resultText">ROUND</h3>
             <h3 id="computerText">COMPUTER</h3>
         </div>
-        <div id="btns">
-            <button id="rock" class="choiceButton">Rock</button>
-            <button id="paper" class="choiceButton">Paper</button>
-            <button id="scissors" class="choiceButton">Scissors</button>
-        </div>
+        <ul id="btns">
+            <li style="--clr: #E52521" id="rock">
+                <a href="#">
+                    <i class="fa-solid fa-hand-back-fist choiceButton"></i>
+                    <span>ROCK</span>
+                </a>
+            </li>
+            <li style="--clr: #43B047" id="paper">
+                <a href="#">
+                    <i class="fa-solid fa-hand choiceButton"></i>
+                    <span class="choiceButton">PAPER</span>
+                </a>
+            </li>
+            <li style="--clr: #FBD000" id="scissors">
+                <a href="#">
+                    <i class="fa-solid fa-hand-scissors choiceButton"></i>
+                    <span>SCISSORS</span>
+                </a>
+            </li>
+        </ul>
     </div>
 </body>
 </html>
