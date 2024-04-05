@@ -38,3 +38,14 @@ Doing the Best of Five Game, I've learned:
 --- Events can have many event listeners.
 
 Now the game can be played, but it still looks booooooring, we should give it some style. See ya, later!
+
+
+## Added CSS
+
+--- I made it look like a football (or any other sports) game Scoreboard
+
+--- I saw some cool way to style buttons from this guy on YouTube, check him out! => https://www.youtube.com/@OnlineTutorialsYT
+
+--- The fonts I got from: https://fonts.google.com/
+
+--- The icons I got from: https://fontawesome.com/

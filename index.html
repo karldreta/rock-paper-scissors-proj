@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
     <title>Rock Paper Scissors Reworked | Odin Project</title>
 </head>
@@ -12,15 +14,16 @@
     <div id="gameDiv">
         <h1 id="gameTitle">Rock, Paper, Scissors!</h1>
         <div id="scoreBoard" >
-            <h2 class="scoreText">PLAYER<div id="playerScore">00</div></h2>
+            <h2 class="scoreText">GUEST<div id="playerScore">00</div></h2>
             <h2 class="scoreText">ROUND<div id="roundNum">0</div></h2>
-            <h2 class="scoreText">COMPUTER<div id="computerScore">00</div></h2>
+            <h2 class="scoreText">HOME<div id="computerScore">00</div></h2>
         </div>
         <div id="outputs">
-            <h3 id="playerText">PLAYER</h3>
+            <h3 id="playerText">GUEST</h3>
             <h3 id="resultText">ROUND</h3>
-            <h3 id="computerText">COMPUTER</h3>
+            <h3 id="computerText">HOME</h3>
         </div>
+    </div>
         <ul id="btns">
             <li style="--clr: #E52521" id="rock">
                 <a href="#">
@@ -41,6 +44,5 @@
                 </a>
             </li>
         </ul>
-    </div>
 </body>
 </html>

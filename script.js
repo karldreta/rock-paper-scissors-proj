@@ -11,6 +11,10 @@ const choiceBtns = document.querySelectorAll('.choiceButton');
 const icons = document.querySelectorAll('.fa-solid');
 icons.forEach(button => button.addEventListener('click', getPlayerChoice));
 
+gameTitle.addEventListener('click', function() {
+    // How to Play
+    window.open('https://www.wikihow.com/Play-Rock,-Paper,-Scissors', '_blank');
+});
 
 // Initialize the game scores
 let playerRunningScore = 0;
@@ -55,11 +59,11 @@ function playRound(player) {
     if ((player === "rock" && computer === "scissors") ||
         (player === "paper" && computer === "rock") ||
         (player === "scissors" && computer === "paper")) {
-        result = "Player";
+        result = "Guest";
        } else if (player === computer) {
         result = "Draw";
        } else {
-        result = "Computer";
+        result = "Home";
        }
 
        playerText.textContent = `${player.toUpperCase()}`;
@@ -73,9 +77,9 @@ function playRound(player) {
 function roundResult() {
     let result = playRound(playerChoice); 
 
-    if (!(result.includes("Player") || result.includes("Computer"))) {
+    if (!(result === "Guest" || result === "Home")) {
         return null
-    } else if (result.includes("Player")) {
+    } else if (result === "Guest") {
         return 1;
     } else {
         return 0;
@@ -94,6 +98,7 @@ function startGame () {
             computerRunningScore++;
         } 
 
+        gameTitle.textContent = `Rock, Paper, Scissors!`;
         playerScore.textContent = `0${playerRunningScore}`;
         computerScore.textContent = `0${computerRunningScore}`;
         roundNum.textContent = `${roundsPlayed + 1}`;
@@ -109,6 +114,7 @@ function startGame () {
 
 
 function declareWinner() {
+
     if (playerRunningScore > computerRunningScore) {
         gameTitle.textContent = `Winner: Player`;
     } else if (playerRunningScore < computerRunningScore) {
@@ -121,4 +127,5 @@ function declareWinner() {
     playerRunningScore = 0;
     computerRunningScore = 0;
     roundsPlayed = 0; 
+
 }
