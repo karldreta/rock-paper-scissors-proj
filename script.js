@@ -116,9 +116,9 @@ function startGame () {
 function declareWinner() {
 
     if (playerRunningScore > computerRunningScore) {
-        gameTitle.textContent = `Winner: Player`;
+        gameTitle.textContent = `Winner: GUEST`;
     } else if (playerRunningScore < computerRunningScore) {
-        gameTitle.textContent = `Winner: Computer`;
+        gameTitle.textContent = `Winner: HOME`;
     } else {
         gameTitle.textContent = `Play Tie Breaker`;
     }
