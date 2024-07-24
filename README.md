@@ -1,51 +1,46 @@
-# rock-paper-scissors-proj
-Odin JS Project #1 - Rock, Paper, Scissors
+# Rock-Paper-Scissors Project
 
+## Overview
 
-## This is my first JS project
+This is my first JavaScript project from Odin's curriculum: a simple Rock, Paper, Scissors game. While it may seem straightforward, it presented some interesting challenges.
 
-MY task is to make a simple Rock, Paper, Scissors game.
+## Getting Started
 
-I said simple, but it may not be the case, regardless.
+### Project Objective
 
-## Happy Coding!
+Create a basic Rock, Paper, Scissors game using JavaScript.
 
-## Aftermath
+## My Journey
 
-Finally, it was so hard.
+### Challenges and Learnings
 
-I have commented my learnings in the script file but hears some of it:
+Developing this project was quite a challenge. Here's what I learned:
 
---- I learned scoping variables
---- Learned a lot about conditionals 
---- Had to advance the lessons to get into loops here.
+- **Variable Scoping:** Gained understanding of scoping variables.
+- **Conditionals:** Worked extensively with conditional statements.
+- **Loops:** Advanced lessons were necessary to implement loops.
 
-I know I'm not supposed to step into rabbit holes, I'll just go back.
+I encountered difficulties and found myself exploring areas beyond the project scope. I eventually sought help from the TOP Discord community and, through Socratic dialogue with **@gin**, gained new insights into approaching the project.
 
-Anyways, I think I finished the project, hopefully.
+### Key Takeaways
 
+While implementing the Best of Five Game, I learned:
 
-## Revisiting rock, paper, scissors
+- **Event Objects:** Events automatically create event objects that can be used as function arguments.
+- **Function Parameters:** Parameters can be passed by value, regardless of their names.
+- **Multiple Event Listeners:** Multiple event listeners can be attached to a single event.
 
-It was so hard, got stuck for 2 weeks, and eventually caved in and asked for help at TOP discord community. After some Socratic dialogue @gin was able to make me see, how I can approach the project.
+The game now works, but it's in need of some styling.
 
-Doing the Best of Five Game, I've learned:
+## Styling and Enhancements
 
---- Events automatically create event objects, which can then be used as an argument for a function.
+### CSS Improvements
 
---- Function parameters can be passed regardless of name as long as it is still referring to the same value.
+- Styled the game to resemble a sports scoreboard.
+- Found inspiration for button styling from a [YouTube tutorial](https://www.youtube.com/@OnlineTutorialsYT).
+- Used fonts from [Google Fonts](https://fonts.google.com/).
+- Integrated icons from [Font Awesome](https://fontawesome.com/).
 
---- Events can have many event listeners.
+## Conclusion
 
-Now the game can be played, but it still looks booooooring, we should give it some style. See ya, later!
-
-
-## Added CSS
-
---- I made it look like a football (or any other sports) game Scoreboard
-
---- I saw some cool way to style buttons from this guy on YouTube, check him out! => https://www.youtube.com/@OnlineTutorialsYT
-
---- The fonts I got from: https://fonts.google.com/
-
---- The icons I got from: https://fontawesome.com/
+The project was challenging but rewarding. I'm happy with the outcome and excited to continue enhancing my skills. See you later!
